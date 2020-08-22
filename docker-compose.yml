@@ -2,18 +2,13 @@ version: "3.7"
 
 services:
   rabbitmq-master:
-    image: rabbitmq:3-management
+    build: .
     restart: always
     ports:
       - ${RABBITMQ_MANAGEMENT_PORT}:15672
       - ${RABBITMQ_MASTER_PORT}:5672
-    volumes:
-      - rabbitmq:/var/lib/rabbitmq
     networks:
       - default
-
-volumes:
-  rabbitmq:
 
 networks:
   default:
